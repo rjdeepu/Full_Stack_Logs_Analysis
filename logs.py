@@ -12,6 +12,7 @@ cursor.execute("SELECT title, count(1) as cnt FROM log JOIN articles AS art "
                "GROUP BY title ORDER BY cnt DESC LIMIT 3")
 print ('')
 print ("What are the most popular three articles of all time?")
+#Output is printed using loop and converting number to string
 for i in cursor.fetchall():
     print (i[0] + ' - ' + str(i[1]))
 
@@ -22,6 +23,7 @@ cursor.execute("SELECT auth.name, count(1) AS views FROM log JOIN articles "
                "GROUP BY auth.name ORDER BY views desc")
 print ('')
 print ("Who are the most popular article authors of all time")
+#Output is printed using loop and converting number to string
 for i in cursor.fetchall():
     print (i[0] + ' - ' + str(i[1]))
 
@@ -35,6 +37,7 @@ cursor.execute("SELECT TO_CHAR(totdt, 'MONTH DD,YYYY'), "
                "WHERE totdt = errdt AND errcnt * 100 /totcnt > 1")
 print ('')
 print ("On which days did more than 1% of requests lead to errors?")
+#Output is printed using loop and converting number to string
 for i in cursor.fetchall():
     print (i[0] + ' - ' + str(i[1]))
 
